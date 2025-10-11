@@ -3,41 +3,41 @@
 @import "../styles/phone-overrides.css";
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {--color-primary-50:  #f0fdf4;}
-@theme {--color-primary-100: #dcfce7;}
-@theme {--color-primary-200: #bbf7d0;}
-@theme {--color-primary-300: #86efac;}
-@theme {--color-primary-400: #4ade80;}
-@theme {--color-primary-500: #009739;}
-@theme {--color-primary-600: #008131;}
-@theme {--color-primary-700: #006628;}
-@theme {--color-primary-800: #004d1f;}
-@theme {--color-primary-900: #003315;}
-@theme {--color-primary-950: #001a0a;}
+@theme {--color-primary-50:  #f3f0ff;}
+@theme {--color-primary-100: #e4dbff;}
+@theme {--color-primary-200: #c9b7ff;}
+@theme {--color-primary-300: #a186ff;}
+@theme {--color-primary-400: #8b5cf6;}
+@theme {--color-primary-500: #7c3aed;}
+@theme {--color-primary-600: #6d28d9;}
+@theme {--color-primary-700: #5b21b6;}
+@theme {--color-primary-800: #4c1d95;}
+@theme {--color-primary-900: #3b0d7a;}
+@theme {--color-primary-950: #26035a;}
 
-@theme {--color-secondary-50:  #fffdea;}
-@theme {--color-secondary-100: #fef9c3;}
-@theme {--color-secondary-200: #fef08a;}
-@theme {--color-secondary-300: #fde047;}
-@theme {--color-secondary-400: #facc15;}
-@theme {--color-secondary-500: #ffcc29;}
-@theme {--color-secondary-600: #e6b800;}
-@theme {--color-secondary-700: #cca300;}
-@theme {--color-secondary-800: #997a00;}
-@theme {--color-secondary-900: #665200;}
-@theme {--color-secondary-950: #332900;}
+@theme {--color-secondary-50:  #fff7e6;}
+@theme {--color-secondary-100: #ffedc2;}
+@theme {--color-secondary-200: #ffd98a;}
+@theme {--color-secondary-300: #ffc24d;}
+@theme {--color-secondary-400: #ffad26;}
+@theme {--color-secondary-500: #ff9900;}
+@theme {--color-secondary-600: #db7f00;}
+@theme {--color-secondary-700: #b46600;}
+@theme {--color-secondary-800: #8c4d00;}
+@theme {--color-secondary-900: #663700;}
+@theme {--color-secondary-950: #3d2000;}
 
-@theme {--color-tertiary-50:  #eff6ff;}
-@theme {--color-tertiary-100: #dbeafe;}
-@theme {--color-tertiary-200: #bfdbfe;}
-@theme {--color-tertiary-300: #93c5fd;}
-@theme {--color-tertiary-400: #60a5fa;}
-@theme {--color-tertiary-500: #002776;}
-@theme {--color-tertiary-600: #001f5e;}
-@theme {--color-tertiary-700: #001947;}
-@theme {--color-tertiary-800: #00122f;}
-@theme {--color-tertiary-900: #000c1a;}
-@theme {--color-tertiary-950: #00060d;}
+@theme {--color-tertiary-50:  #ecfeff;}
+@theme {--color-tertiary-100: #cffafe;}
+@theme {--color-tertiary-200: #a5f3fc;}
+@theme {--color-tertiary-300: #67e8f9;}
+@theme {--color-tertiary-400: #22d3ee;}
+@theme {--color-tertiary-500: #06b6d4;}
+@theme {--color-tertiary-600: #0891b2;}
+@theme {--color-tertiary-700: #0e7490;}
+@theme {--color-tertiary-800: #155e75;}
+@theme {--color-tertiary-900: #164e63;}
+@theme {--color-tertiary-950: #0d3444;}
 
 @theme {--color-info-50: #eff6ff;}
 @theme {--color-info-100: #dbeafe;}
@@ -88,10 +88,10 @@
 @theme {--color-destructive-950: #2b0009;}
 
 @theme {
-  --color-background: #F6F5F7;  /* light mode */
-  --color-foreground: #1F1F1F;  /* light mode */
-  --color-bg-card: #ffffff;  /* light mode */
-  --color-border-card: #ffffff;  /* light mode */
+  --color-background: #0f172a;  /* light mode */
+  --color-foreground: #f8fafc;  /* light mode */
+  --color-bg-card: #151b3c;  /* light mode */
+  --color-border-card: #262f57;  /* light mode */
 
     --font-primary: "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
                Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
@@ -106,10 +106,10 @@
 
 /* Class override so a `.dark` class wins regardless of system */
 :root.dark {
-  --color-background: #111111;
-  --color-foreground: #FFFEFC;
-  --color-bg-card: #222222;
-  --color-border-card: #444444;
+  --color-background: #020617;
+  --color-foreground: #f8fafc;
+  --color-bg-card: #0b1120;
+  --color-border-card: #1e293b;
 }
 
 
