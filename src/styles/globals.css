@@ -3,41 +3,41 @@
 @import "../styles/phone-overrides.css";
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {--color-primary-50:  #f0fdf4;}
-@theme {--color-primary-100: #dcfce7;}
-@theme {--color-primary-200: #bbf7d0;}
-@theme {--color-primary-300: #86efac;}
-@theme {--color-primary-400: #4ade80;}
-@theme {--color-primary-500: #009739;}
-@theme {--color-primary-600: #008131;}
-@theme {--color-primary-700: #006628;}
-@theme {--color-primary-800: #004d1f;}
-@theme {--color-primary-900: #003315;}
-@theme {--color-primary-950: #001a0a;}
+@theme {--color-primary-50:  #eef2ff;}
+@theme {--color-primary-100: #dbe4ff;}
+@theme {--color-primary-200: #b6c5ff;}
+@theme {--color-primary-300: #8097ff;}
+@theme {--color-primary-400: #4f6eff;}
+@theme {--color-primary-500: #1f4bff;}
+@theme {--color-primary-600: #1636db;}
+@theme {--color-primary-700: #1229b1;}
+@theme {--color-primary-800: #0e1f86;}
+@theme {--color-primary-900: #0b155c;}
+@theme {--color-primary-950: #050b2e;}
 
-@theme {--color-secondary-50:  #fffdea;}
-@theme {--color-secondary-100: #fef9c3;}
-@theme {--color-secondary-200: #fef08a;}
-@theme {--color-secondary-300: #fde047;}
-@theme {--color-secondary-400: #facc15;}
-@theme {--color-secondary-500: #ffcc29;}
-@theme {--color-secondary-600: #e6b800;}
-@theme {--color-secondary-700: #cca300;}
-@theme {--color-secondary-800: #997a00;}
-@theme {--color-secondary-900: #665200;}
-@theme {--color-secondary-950: #332900;}
+@theme {--color-secondary-50:  #ecfeff;}
+@theme {--color-secondary-100: #cffafe;}
+@theme {--color-secondary-200: #a5f3fc;}
+@theme {--color-secondary-300: #67e8f9;}
+@theme {--color-secondary-400: #22d3ee;}
+@theme {--color-secondary-500: #06b6d4;}
+@theme {--color-secondary-600: #0891b2;}
+@theme {--color-secondary-700: #0e7490;}
+@theme {--color-secondary-800: #155e75;}
+@theme {--color-secondary-900: #164e63;}
+@theme {--color-secondary-950: #082f3d;}
 
-@theme {--color-tertiary-50:  #eff6ff;}
-@theme {--color-tertiary-100: #dbeafe;}
-@theme {--color-tertiary-200: #bfdbfe;}
-@theme {--color-tertiary-300: #93c5fd;}
-@theme {--color-tertiary-400: #60a5fa;}
-@theme {--color-tertiary-500: #002776;}
-@theme {--color-tertiary-600: #001f5e;}
-@theme {--color-tertiary-700: #001947;}
-@theme {--color-tertiary-800: #00122f;}
-@theme {--color-tertiary-900: #000c1a;}
-@theme {--color-tertiary-950: #00060d;}
+@theme {--color-tertiary-50:  #fef3c7;}
+@theme {--color-tertiary-100: #fde68a;}
+@theme {--color-tertiary-200: #fcd34d;}
+@theme {--color-tertiary-300: #fbbf24;}
+@theme {--color-tertiary-400: #f59e0b;}
+@theme {--color-tertiary-500: #d97706;}
+@theme {--color-tertiary-600: #b45309;}
+@theme {--color-tertiary-700: #92400e;}
+@theme {--color-tertiary-800: #78350f;}
+@theme {--color-tertiary-900: #451a03;}
+@theme {--color-tertiary-950: #2c0f01;}
 
 @theme {--color-info-50: #eff6ff;}
 @theme {--color-info-100: #dbeafe;}
@@ -49,7 +49,7 @@
 @theme {--color-info-700: #1d4ed8;}
 @theme {--color-info-800: #1e40af;}
 @theme {--color-info-900: #1e3a8a;}
-@theme {--color-info-950: #0f172a;}
+@theme {--color-info-950: #172554;}
 
 @theme {--color-success-50: #ecfdf5;}
 @theme {--color-success-100: #d1fae5;}
@@ -88,10 +88,10 @@
 @theme {--color-destructive-950: #2b0009;}
 
 @theme {
-  --color-background: #F6F5F7;  /* light mode */
-  --color-foreground: #1F1F1F;  /* light mode */
-  --color-bg-card: #ffffff;  /* light mode */
-  --color-border-card: #ffffff;  /* light mode */
+  --color-background: #01060f;  /* light mode */
+  --color-foreground: #f8fafc;  /* light mode */
+  --color-bg-card: #071225;  /* light mode */
+  --color-border-card: #132545;  /* light mode */
 
     --font-primary: "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
                Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
@@ -106,10 +106,10 @@
 
 /* Class override so a `.dark` class wins regardless of system */
 :root.dark {
-  --color-background: #111111;
-  --color-foreground: #FFFEFC;
-  --color-bg-card: #222222;
-  --color-border-card: #444444;
+  --color-background: #00040c;
+  --color-foreground: #f8fafc;
+  --color-bg-card: #050d1d;
+  --color-border-card: #11213d;
 }
 
 
