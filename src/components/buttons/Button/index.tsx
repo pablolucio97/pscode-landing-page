@@ -24,11 +24,13 @@ export default function Button({
   variant = "filled",
   iconVariant = "scale",
   iconColor = "#ffffff",
+  className,
   ...props
-} : ButtonProps) {
+}: ButtonProps) {
   return (
     <button
-      className={`flex items-center justify-center w-fit px-3 py-2 sm:px-4 sm:py-3 rounded-md ${variant === "filled"
+      className={`flex items-center justify-center w-fit px-3 py-2 sm:px-4 sm:py-3 rounded-md ${
+        variant === "filled"
           ? "bg-primary-500 text-white hover:bg-primary-600"
           : variant === "outlined"
             ? "border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white"
@@ -37,7 +39,7 @@ export default function Button({
               : variant === "destructive"
                 ? "bg-destructive-500 text-white hover:bg-destructive-600"
                 : ""
-        }`}
+      } ${className ?? ""}`}
       disabled={loading}
       {...props}
     >
