@@ -3,41 +3,41 @@
 @import "../styles/phone-overrides.css";
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {--color-primary-50:  #f0fdf4;}
-@theme {--color-primary-100: #dcfce7;}
-@theme {--color-primary-200: #bbf7d0;}
-@theme {--color-primary-300: #86efac;}
-@theme {--color-primary-400: #4ade80;}
-@theme {--color-primary-500: #009739;}
-@theme {--color-primary-600: #008131;}
-@theme {--color-primary-700: #006628;}
-@theme {--color-primary-800: #004d1f;}
-@theme {--color-primary-900: #003315;}
-@theme {--color-primary-950: #001a0a;}
+@theme {--color-primary-50:  #eef2ff;}
+@theme {--color-primary-100: #e0e7ff;}
+@theme {--color-primary-200: #c7d2fe;}
+@theme {--color-primary-300: #a5b4fc;}
+@theme {--color-primary-400: #818cf8;}
+@theme {--color-primary-500: #4f46e5;}
+@theme {--color-primary-600: #4338ca;}
+@theme {--color-primary-700: #3730a3;}
+@theme {--color-primary-800: #312e81;}
+@theme {--color-primary-900: #1e1b4b;}
+@theme {--color-primary-950: #111032;}
 
-@theme {--color-secondary-50:  #fffdea;}
-@theme {--color-secondary-100: #fef9c3;}
-@theme {--color-secondary-200: #fef08a;}
-@theme {--color-secondary-300: #fde047;}
-@theme {--color-secondary-400: #facc15;}
-@theme {--color-secondary-500: #ffcc29;}
-@theme {--color-secondary-600: #e6b800;}
-@theme {--color-secondary-700: #cca300;}
-@theme {--color-secondary-800: #997a00;}
-@theme {--color-secondary-900: #665200;}
-@theme {--color-secondary-950: #332900;}
+@theme {--color-secondary-50:  #ecfeff;}
+@theme {--color-secondary-100: #cffafe;}
+@theme {--color-secondary-200: #a5f3fc;}
+@theme {--color-secondary-300: #67e8f9;}
+@theme {--color-secondary-400: #38c8f3;}
+@theme {--color-secondary-500: #0ea5e9;}
+@theme {--color-secondary-600: #0284c7;}
+@theme {--color-secondary-700: #0369a1;}
+@theme {--color-secondary-800: #075985;}
+@theme {--color-secondary-900: #0c4a6e;}
+@theme {--color-secondary-950: #082f49;}
 
-@theme {--color-tertiary-50:  #eff6ff;}
-@theme {--color-tertiary-100: #dbeafe;}
-@theme {--color-tertiary-200: #bfdbfe;}
-@theme {--color-tertiary-300: #93c5fd;}
-@theme {--color-tertiary-400: #60a5fa;}
-@theme {--color-tertiary-500: #002776;}
-@theme {--color-tertiary-600: #001f5e;}
-@theme {--color-tertiary-700: #001947;}
-@theme {--color-tertiary-800: #00122f;}
-@theme {--color-tertiary-900: #000c1a;}
-@theme {--color-tertiary-950: #00060d;}
+@theme {--color-tertiary-50:  #f0fdf4;}
+@theme {--color-tertiary-100: #dcfce7;}
+@theme {--color-tertiary-200: #bbf7d0;}
+@theme {--color-tertiary-300: #86efac;}
+@theme {--color-tertiary-400: #4ade80;}
+@theme {--color-tertiary-500: #22c55e;}
+@theme {--color-tertiary-600: #16a34a;}
+@theme {--color-tertiary-700: #15803d;}
+@theme {--color-tertiary-800: #166534;}
+@theme {--color-tertiary-900: #14532d;}
+@theme {--color-tertiary-950: #052e16;}
 
 @theme {--color-info-50: #eff6ff;}
 @theme {--color-info-100: #dbeafe;}
@@ -75,23 +75,11 @@
 @theme {--color-alert-900: #45141d;}
 @theme {--color-alert-950: #3b0e14;}
 
-@theme {--color-destructive-50:  #fff1f4;}
-@theme {--color-destructive-100: #ffe0e6;}
-@theme {--color-destructive-200: #ffb3c0;}
-@theme {--color-destructive-300: #ff8096;}
-@theme {--color-destructive-400: #ff4d6b;}
-@theme {--color-destructive-500: #e60036;}
-@theme {--color-destructive-600: #c9002f;}
-@theme {--color-destructive-700: #a30026;}
-@theme {--color-destructive-800: #7d001d;}
-@theme {--color-destructive-900: #520013;}
-@theme {--color-destructive-950: #2b0009;}
-
 @theme {
-  --color-background: #F6F5F7;  /* light mode */
-  --color-foreground: #1F1F1F;  /* light mode */
-  --color-bg-card: #ffffff;  /* light mode */
-  --color-border-card: #ffffff;  /* light mode */
+  --color-background: #030712;  /* light mode */
+  --color-foreground: #f8fafc;  /* light mode */
+  --color-bg-card: #0b1120;  /* light mode */
+  --color-border-card: #1e293b;  /* light mode */
 
     --font-primary: "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
                Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
@@ -106,10 +94,10 @@
 
 /* Class override so a `.dark` class wins regardless of system */
 :root.dark {
-  --color-background: #111111;
-  --color-foreground: #FFFEFC;
-  --color-bg-card: #222222;
-  --color-border-card: #444444;
+  --color-background: #010409;
+  --color-foreground: #f8fafc;
+  --color-bg-card: #020817;
+  --color-border-card: #1f2937;
 }
 
 
@@ -145,4 +133,3 @@ button:disabled{
 @layer utilities {
   .rc-slider-disabled { background-color: var(--color-background) !important;}
 }
-
