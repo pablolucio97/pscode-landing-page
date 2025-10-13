@@ -1,23 +1,39 @@
 export const navigationLinks = [
-  { label: "O que fazemos", href: "#o-que-fazemos" },
-  { label: "Produtos", href: "#nossos-produtos" },
-  { label: "Serviços", href: "#nossos-servicos" },
-  { label: "Diferenciais", href: "#diferenciais" },
-  { label: "Processo", href: "#como-trabalhamos" },
-  { label: "Clientes", href: "#para-quem" },
+  { label: "Início", href: "#inicio" },
+  { label: "Serviços", href: "#servicos" },
+  { label: "Soluções", href: "#solucoes" },
+  { label: "Métricas", href: "#metricas" },
   { label: "Contato", href: "#contato" },
 ];
 
-export const capabilityHighlights = {
-  description:
-    "Na CerboLabs, criamos soluções de software completas para empresas que buscam tecnologia com alta performance, escalabilidade e design profissional.",
-  pillars: [
-    "Serviços de Desenvolvimento Personalizado",
-    "Produtos Digitais Prontos para Uso",
-  ],
-  objective:
-    "Nosso objetivo é transformar ideias em soluções digitais lucrativas, rápidas e sustentáveis.",
-};
+export const heroHighlights = [
+  "Squads especialistas em tecnologia B2B",
+  "Design e UX focados em conversão",
+  "Integrações inteligentes e automações"
+];
+
+export const servicesShowcase = [
+  {
+    title: "Desenvolvimento sob medida",
+    description:
+      "Aplicativos web e mobile construídos para suportar escala, segurança e alto volume de usuários.",
+  },
+  {
+    title: "Integrações e automações",
+    description:
+      "Conectamos sistemas, ERPs e CRMs para manter operações fluidas e dados atualizados em tempo real.",
+  },
+  {
+    title: "UX/UI orientado a métricas",
+    description:
+      "Experiências digitais modernas, responsivas e acessíveis que aumentam engajamento e conversões.",
+  },
+  {
+    title: "Suporte e evolução contínua",
+    description:
+      "Monitoramento, otimizações e squads dedicados garantindo estabilidade e melhorias constantes.",
+  },
+];
 
 export const productShowcase = [
   {
@@ -25,13 +41,12 @@ export const productShowcase = [
     name: "TreinaHub",
     tagline: "Plataforma LMS Profissional",
     description:
-      "A maneira mais simples e poderosa de treinar colaboradores, clientes ou alunos online.",
+      "Treine colaboradores, clientes e franqueados com videoaulas rápidas, avaliações automáticas e certificação digital.",
     benefits: [
-      "Videoaulas em alta performance",
-      "Questionários e avaliações automáticas",
-      "Certificação digital automática",
-      "Controle de usuários e progresso",
-      "Suporte a empresas, franquias e escolas",
+      "Streaming otimizado para alta performance",
+      "Questionários, trilhas e gamificação",
+      "Certificados automáticos com branding",
+      "Gestão de usuários, times e permissões",
     ],
   },
   {
@@ -39,64 +54,37 @@ export const productShowcase = [
     name: "React Collections",
     tagline: "Componentes e Templates Premium",
     description:
-      "Coleção profissional de componentes e templates em React para criar experiências digitais completas.",
+      "Coleção profissional em React para lançar landing pages, portais corporativos e sistemas completos com agilidade.",
     benefits: [
-      "Landing pages",
-      "Sites institucionais",
-      "E-commerces",
-      "Sistemas web completos",
-      "Qualidade de design e código padrão de mercado",
+      "Layouts responsivos e testados",
+      "Design system com padrões de mercado",
+      "Integrações prontas com ferramentas SaaS",
+      "Documentação e suporte para squads internos",
     ],
   },
 ];
 
-export const servicesOffered = [
-  "Criação de Landing Pages de Alta Conversão",
-  "Desenvolvimento de Sites Institucionais Profissionais",
-  "Criação de Blogs com CMS e SEO aplicado",
-  "Desenvolvimento de Aplicativos Mobile (publicação e manutenção inclusa)",
-  "Desenvolvimento de Sistemas Web e Plataformas Personalizadas",
-  "Hospedagem, Deploy, Suporte e Atualizações Contínuas",
+export const metricHighlights = [
+  { value: "98%", label: "Índice de satisfação dos clientes" },
+  { value: "+120", label: "Projetos digitais entregues" },
+  { value: "2M", label: "Usuários ativos em nossas plataformas" },
+  { value: "30 dias", label: "Tempo médio para lançar MVP" },
 ];
 
-export const differentiators = [
-  "Foco em resultado, não apenas código",
-  "Uso de Inteligência Artificial para acelerar entregas e reduzir custos",
-  "Soluções escaláveis e seguras",
-  "Design moderno e experiência do usuário otimizada",
-  "Suporte contínuo e parceria de longo prazo",
-  "Entendemos o seu modelo de negócio antes de desenvolver",
+export const technologyStack = [
+  { name: "React", description: "Interfaces escaláveis e reutilizáveis" },
+  { name: "Next.js", description: "Performance, SEO e renderização híbrida" },
+  { name: "TypeScript", description: "Segurança tipada e manutenção simples" },
+  { name: "Node.js", description: "APIs rápidas e integrações robustas" },
+  { name: "Tailwind CSS", description: "Design consistente em alto ritmo" },
 ];
 
-export const processSteps = [
-  {
-    step: "1️⃣",
-    title: "Entendimento do seu negócio e necessidades",
-  },
-  {
-    step: "2️⃣",
-    title: "Proposta de solução estratégica",
-  },
-  {
-    step: "3️⃣",
-    title: "Desenvolvimento ágil com acompanhamento",
-  },
-  {
-    step: "4️⃣",
-    title: "Lançamento com segurança",
-  },
-  {
-    step: "5️⃣",
-    title: "Suporte, melhorias e evolução contínuas",
-  },
-];
-
-export const idealForList = [
-  "Empresas que precisam escalar treinamento ou operações",
-  "Negócios que querem presença digital profissional",
-  "Startups que precisam de produto rápido e confiável",
-  "Empreendedores que querem transformar ideia em software",
-  "Empresas que precisam manter sistemas sem dor de cabeça",
+export const partnerLogos = [
+  { name: "Avod" },
+  { name: "QPC" },
+  { name: "Analytics Co." },
+  { name: "StartFlow" },
+  { name: "Neon Group" },
 ];
 
 export const contactChannels = [

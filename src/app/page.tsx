@@ -15,24 +15,40 @@ import Phrase from "@/components/typography/Phrase";
 import Subtitle from "@/components/typography/Subtitle";
 import Title from "@/components/typography/Title";
 import {
+  ChartLineUpIcon,
   CheckCircleIcon,
+  CursorClickIcon,
+  EnvelopeSimpleIcon,
+  GlobeHemisphereWestIcon,
+  HeadsetIcon,
   LightningIcon,
+  MonitorPlayIcon,
+  PhoneCallIcon,
+  PlugsConnectedIcon,
   RocketLaunchIcon,
-  SquaresFourIcon,
-  UsersThreeIcon,
+  SparkleIcon,
+  StackIcon,
 } from "@phosphor-icons/react";
 import {
-  capabilityHighlights,
   contactChannels,
-  differentiators,
-  idealForList,
+  heroHighlights,
+  metricHighlights,
   navigationLinks,
-  processSteps,
+  partnerLogos,
   productShowcase,
-  servicesOffered,
+  servicesShowcase,
+  technologyStack,
 } from "@/mocks/landing";
 
 const BRAND_NAME = "CerboLabs";
+
+const heroHighlightIcons = [LightningIcon, SparkleIcon, RocketLaunchIcon];
+const serviceIcons = [StackIcon, PlugsConnectedIcon, CursorClickIcon, HeadsetIcon];
+const contactIcons = [
+  EnvelopeSimpleIcon,
+  PhoneCallIcon,
+  GlobeHemisphereWestIcon,
+];
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -48,18 +64,38 @@ export default function Home() {
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground">
-      <LandingHeader.Root className="bg-background/60 backdrop-blur-lg">
+      <div className="hidden w-full border-b border-primary-500/30 bg-primary-500/10 py-2 sm:flex">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6">
+          <Phrase
+            content="Parceria completa de tecnologia para escalar o seu negócio."
+            className="text-xs uppercase tracking-[0.4em] text-foreground/70"
+          />
+          <Phrase
+            content="Disponível para projetos no Brasil e exterior"
+            className="text-xs text-foreground/60"
+          />
+        </div>
+      </div>
+
+      <LandingHeader.Root
+        bordered
+        className="border-primary-500/20 bg-[#020510]/90 backdrop-blur"
+      >
         <LandingHeader.Left>
           <LandingHeader.Logo src="/globe.svg" alt={BRAND_NAME} />
-          <Phrase content={BRAND_NAME} className="hidden sm:block text-sm font-semibold uppercase tracking-[0.2em] text-foreground/70" />
+          <Phrase
+            content={BRAND_NAME}
+            className="hidden text-sm font-semibold uppercase tracking-[0.25em] text-primary-300 sm:block"
+          />
         </LandingHeader.Left>
         <LandingHeader.Center>
           <LandingHeader.Nav>
-            {navigationLinks.map((item) => (
+            {navigationLinks.map((item, index) => (
               <LandingHeader.Nav.Item
                 key={item.href}
                 href={item.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => handleNavigate(item.href)}
+                active={index === 0}
               >
                 {item.label}
               </LandingHeader.Nav.Item>
@@ -67,7 +103,10 @@ export default function Home() {
           </LandingHeader.Nav>
         </LandingHeader.Center>
         <LandingHeader.Right>
-          <LandingHeader.MobileMenuToggle open={menuOpen} onToggle={setMenuOpen as never} />
+          <LandingHeader.MobileMenuToggle
+            open={menuOpen}
+            onToggle={setMenuOpen as never}
+          />
           <LandingHeader.MobileMenuPanel
             open={menuOpen}
             cta={
@@ -90,119 +129,197 @@ export default function Home() {
           <LandingHeader.CTA
             label="Solicitar proposta"
             onClick={() => handleNavigate("#contato")}
+            className="bg-primary-500/90 px-5 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:bg-primary-500"
           />
         </LandingHeader.Right>
       </LandingHeader.Root>
 
       <main className="flex w-full flex-col gap-24 pb-24">
-        <div className="relative w-full overflow-hidden bg-gradient-to-b from-[#140f3a] via-[#0f172a] to-[#0b1320] pb-16">
-          <div className="absolute inset-x-0 -top-24 -z-10 h-96 bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.35),_transparent_60%)]" />
-          <div className="absolute inset-y-0 right-[-20%] -z-10 h-full w-[60%] bg-[radial-gradient(circle,_rgba(6,182,212,0.15),_transparent_70%)]" />
-          <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 pt-20">
-            <ZoomContainer once>
-              <HeroSection
-                size="middle"
-                title="Soluções de Software Sob Medida para Escalar Seu Negócio"
-                subtitle="Desenvolvemos sistemas, plataformas e produtos digitais que aumentam performance, reduzem custos e entregam resultados reais para empresas."
-                buttonText="👉 Solicitar Proposta"
-                onButtonClick={() => handleNavigate("#contato")}
-                sectionClassName="items-start text-left gap-6 rounded-3xl border border-white/10 bg-gradient-to-br from-primary-800/80 via-primary-900/80 to-[#0b0f24]/80 px-8 py-16 shadow-[0_0_60px_rgba(124,58,237,0.35)]"
-                titleClassName="text-3xl sm:text-4xl md:text-5xl text-white leading-tight"
-                subtitleClassName="text-base sm:text-lg md:text-xl text-white/80 max-w-3xl"
-                buttonClassName="mt-6 rounded-full bg-secondary-500 px-6 py-3 text-sm font-semibold text-[#1c143a] shadow-lg transition-colors hover:bg-secondary-400"
-              />
-            </ZoomContainer>
-            <FadeContainer once className="flex flex-wrap items-center gap-4">
-              <Button
-                label="👉 Ver Portfólio"
-                variant="outlined"
-                className="border-secondary-500 text-secondary-400 hover:bg-secondary-500/10"
-                onClick={() => handleNavigate("#nossos-produtos")}
-              />
-              <Phrase
-                content="Projetos digitais guiados por estratégia, dados e crescimento contínuo."
-                className="text-white/70"
-              />
-            </FadeContainer>
-          </div>
-        </div>
-
-        <div id="o-que-fazemos">
+        <div id="inicio">
           <Section
             size="middle"
-            sectionClassName="gap-12"
+            sectionClassName="relative gap-16 pt-24 pb-16 items-start"
           >
-            <FadeContainer once className="flex flex-col items-center gap-4 text-center">
-              <Title
-                content="O que fazemos"
-                element="h2"
-                className="text-foreground"
+            <div className="absolute inset-x-0 -top-40 -z-10 h-[420px] bg-[radial-gradient(circle_at_top,_rgba(37,99,235,0.45),_transparent_65%)]" />
+            <div className="grid w-full gap-12 lg:grid-cols-[1.05fr_minmax(0,0.95fr)] lg:items-center">
+              <FadeContainer once className="flex w-full flex-col gap-8">
+                <Phrase
+                  content="Tecnologia que transforma negócios"
+                  className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-300"
+                />
+                <HeroSection
+                  size="full"
+                  title="Desenvolvimento de soluções digitais que transformam negócios"
+                  subtitle="Criamos produtos, plataformas e integrações que elevam performance, reduzem custos e geram resultados reais para empresas modernas."
+                  sectionClassName="!px-0 !py-0 items-start gap-6 text-left"
+                  titleClassName="text-4xl sm:text-5xl lg:text-[52px] leading-tight text-white"
+                  subtitleClassName="text-base sm:text-lg text-foreground/80 max-w-xl"
+                />
+                <div className="flex flex-wrap items-center gap-4">
+                  <Button
+                    label="👉 Solicitar Proposta"
+                    onClick={() => handleNavigate("#contato")}
+                    className="rounded-full bg-primary-500 px-6 py-3 text-sm font-semibold tracking-wide text-white shadow-[0_15px_35px_rgba(37,99,235,0.35)] hover:bg-primary-400"
+                  />
+                  <Button
+                    label="👉 Ver Portfólio"
+                    variant="outlined"
+                    className="rounded-full border-primary-300 px-6 py-3 text-sm font-semibold text-primary-200 hover:bg-primary-500/10"
+                    onClick={() => handleNavigate("#solucoes")}
+                  />
+                </div>
+                <div className="grid w-full gap-3 sm:grid-cols-3">
+                  {heroHighlights.map((highlight, index) => {
+                    const Icon = heroHighlightIcons[index % heroHighlightIcons.length];
+                    return (
+                      <div
+                        key={highlight}
+                        className="flex items-center gap-3 rounded-xl border border-white/10 bg-bg-card/70 px-4 py-3"
+                      >
+                        <Icon className="h-5 w-5 text-primary-300" />
+                        <Phrase
+                          content={highlight}
+                          className="text-sm text-foreground/80"
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              </FadeContainer>
+              <RevealContainer once className="relative flex w-full justify-center">
+                <div className="relative w-full max-w-xl overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0b1f4f] via-[#051128] to-[#00040f] p-6 shadow-[0_25px_60px_rgba(37,99,235,0.35)]">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.35),_transparent_70%)]" />
+                  <div className="relative flex flex-col gap-6">
+                    <div className="flex items-center justify-between">
+                      <Phrase
+                        content="Visão em tempo real do seu produto"
+                        className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-200"
+                      />
+                      <span className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-400/40 bg-primary-500/20">
+                        <MonitorPlayIcon className="h-5 w-5 text-primary-200" />
+                      </span>
+                    </div>
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/10 bg-[#030915]">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#1d4ed8]/40 via-transparent to-[#020617]" />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.35),_transparent_55%)]" />
+                      <div className="absolute inset-6 rounded-2xl border border-white/10 bg-[#050b1b]/80" />
+                      <div className="relative flex h-full w-full items-center justify-center">
+                        <span className="flex h-16 w-16 items-center justify-center rounded-full border border-primary-400/40 bg-primary-500/30">
+                          <MonitorPlayIcon className="h-8 w-8 text-primary-200" />
+                        </span>
+                      </div>
+                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-black/40 px-4 py-3">
+                        <Phrase
+                          content="Demo em tela cheia"
+                          className="text-xs text-foreground/70"
+                        />
+                        <Phrase
+                          content="Atualizado há 2 min"
+                          className="text-xs text-foreground/60"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <div className="flex items-center gap-2">
+                        <div className="h-2 w-2 rounded-full bg-green-400" />
+                        <Phrase
+                          content="Deploy contínuo ativo"
+                          className="text-xs text-foreground/70"
+                        />
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <ChartLineUpIcon className="h-5 w-5 text-primary-200" />
+                        <Phrase
+                          content="+38% crescimento médio"
+                          className="text-xs text-foreground/70"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </RevealContainer>
+            </div>
+          </Section>
+        </div>
+
+        <div id="servicos">
+          <Section
+            size="middle"
+            sectionClassName="gap-12 items-start rounded-[32px] border border-white/10 bg-[#050b1b]/80"
+          >
+            <FadeContainer once className="flex w-full flex-col gap-3 text-left">
+              <Phrase
+                content="Serviços"
+                className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-300"
               />
-              <Subtitle
-                content="Tecnologia sob medida com performance, escalabilidade e design profissional"
-                element="h3"
-                className="text-foreground/80"
+              <Title
+                content="Experiência ponta a ponta em produtos digitais"
+                element="h2"
+                className="text-left text-3xl sm:text-4xl text-white"
               />
               <Paragraph
-                content={capabilityHighlights.description}
+                content="Da ideação ao suporte contínuo, entregamos squads dedicados para construir, lançar e evoluir soluções digitais de alto impacto."
                 className="max-w-3xl text-foreground/70"
               />
             </FadeContainer>
-            <FadeContainer once className="grid w-full gap-6 md:grid-cols-2">
-              {capabilityHighlights.pillars.map((pillar) => (
-                <ItemListCard
-                  key={pillar}
-                  icon={<LightningIcon size={32} className="text-secondary-400" />}
-                  title={pillar}
-                  description="Experiência dedicada e squads multidisciplinares para acelerar resultados."
-                  containerClassName="bg-bg-card/70 backdrop-blur border border-white/5"
-                  descriptionClassName="text-foreground/60"
-                />
-              ))}
-            </FadeContainer>
-            <RevealContainer once className="flex justify-center">
-              <Paragraph
-                content={capabilityHighlights.objective}
-                className="max-w-3xl text-center text-foreground/60"
-              />
+            <RevealContainer once className="grid w-full gap-6 md:grid-cols-2">
+              {servicesShowcase.map((service, index) => {
+                const Icon = serviceIcons[index % serviceIcons.length];
+                return (
+                  <ItemListCard
+                    key={service.title}
+                    icon={<Icon className="h-8 w-8 text-primary-200" />}
+                    title={service.title}
+                    description={service.description}
+                    containerClassName="h-full rounded-3xl border border-white/10 bg-bg-card/80 p-6 shadow-[0_20px_40px_rgba(8,11,27,0.45)]"
+                    titleClassName="text-lg font-semibold text-white"
+                    descriptionClassName="text-foreground/70"
+                  />
+                );
+              })}
             </RevealContainer>
           </Section>
         </div>
 
-        <div id="nossos-produtos">
-          <Section size="middle" sectionClassName="gap-10">
-            <FadeContainer once className="flex flex-col items-center gap-4 text-center">
-              <Title
-                content="Nossos produtos"
-                element="h2"
-                className="text-foreground"
+        <div id="solucoes">
+          <Section
+            size="middle"
+            sectionClassName="gap-10 items-start"
+          >
+            <FadeContainer once className="flex w-full flex-col gap-3 text-left">
+              <Phrase
+                content="Soluções"
+                className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-300"
               />
-              <Subtitle
-                content="Plataformas e bibliotecas pensadas para acelerar o seu crescimento"
-                element="h3"
-                className="text-foreground/80"
+              <Title
+                content="Produtos próprios que aceleram o seu roadmap"
+                element="h2"
+                className="text-left text-3xl sm:text-4xl text-white"
               />
             </FadeContainer>
             <div className="grid w-full gap-8 lg:grid-cols-2">
               {productShowcase.map((product) => (
                 <ZoomContainer key={product.id} once className="h-full">
-                  <div className="flex h-full flex-col gap-6 rounded-3xl border border-white/10 bg-bg-card/80 p-8 shadow-lg">
+                  <div className="flex h-full flex-col gap-6 rounded-[28px] border border-primary-500/20 bg-[#050b1b]/80 p-8 shadow-[0_25px_50px_rgba(15,23,42,0.45)]">
                     <div className="flex flex-col gap-2">
                       <Subtitle
-                        content={`${product.name} – ${product.tagline}`}
+                        content={`${product.name} · ${product.tagline}`}
                         element="h3"
-                        className="text-foreground"
+                        className="text-left text-xl font-semibold text-white"
                       />
                       <Paragraph
                         content={product.description}
-                        className="text-foreground/70"
+                        className="text-foreground/75"
                       />
                     </div>
                     <ul className="flex flex-col gap-3">
                       {product.benefits.map((benefit) => (
                         <li key={benefit} className="flex items-center gap-3">
-                          <CheckCircleIcon className="h-5 w-5 text-tertiary-400" />
-                          <Phrase content={benefit} className="text-foreground/75" />
+                          <CheckCircleIcon className="h-5 w-5 text-primary-200" />
+                          <Phrase
+                            content={benefit}
+                            className="text-sm text-foreground/75"
+                          />
                         </li>
                       ))}
                     </ul>
@@ -213,184 +330,171 @@ export default function Home() {
           </Section>
         </div>
 
-        <div id="nossos-servicos">
-          <Section size="middle" sectionClassName="gap-12">
-            <FadeContainer once className="flex flex-col items-center gap-4 text-center">
+        <div id="metricas">
+          <Section
+            size="middle"
+            sectionClassName="gap-10 items-start rounded-[32px] border border-primary-500/20 bg-gradient-to-br from-[#07112a] via-[#040814] to-[#02040b]"
+          >
+            <FadeContainer once className="flex w-full flex-col gap-3 text-left">
+              <Phrase
+                content="Métricas"
+                className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-300"
+              />
               <Title
-                content="Nossos serviços"
+                content="Resultados que sustentam o crescimento dos nossos clientes"
                 element="h2"
-                className="text-foreground"
-              />
-              <Subtitle
-                content="Do planejamento ao suporte contínuo, cuidamos de todo o ciclo digital"
-                element="h3"
-                className="text-foreground/80"
-              />
-              <Paragraph
-                content="Você tem a ideia. Nós desenvolvemos, lançamos e mantemos para você."
-                className="text-foreground/70"
+                className="text-left text-3xl sm:text-4xl text-white"
               />
             </FadeContainer>
-            <FadeContainer once className="grid w-full gap-6 md:grid-cols-2">
-              {servicesOffered.map((service) => (
-                <ItemListCard
-                  key={service}
-                  icon={<SquaresFourIcon size={28} className="text-primary-300" />}
-                  title={service}
-                  containerClassName="bg-bg-card/70 backdrop-blur border border-white/5"
-                  titleClassName="text-foreground"
-                />
-              ))}
-            </FadeContainer>
-          </Section>
-        </div>
-
-        <div id="diferenciais">
-          <Section size="middle" sectionClassName="gap-10">
-            <FadeContainer once className="flex flex-col items-center gap-4 text-center">
-              <Title
-                content="Por que escolher a CerboLabs"
-                element="h2"
-                className="text-foreground"
-              />
-              <Subtitle
-                content="Parceria estratégica com foco em performance e resultados"
-                element="h3"
-                className="text-foreground/80"
-              />
-            </FadeContainer>
-            <FadeContainer className="grid w-full gap-6 md:grid-cols-2">
-              {differentiators.map((item) => (
-                <ItemListCard
-                  key={item}
-                  icon={<RocketLaunchIcon size={28} className="text-secondary-400" />}
-                  title={item}
-                  containerClassName="bg-bg-card/70 backdrop-blur border border-white/5"
-                  titleClassName="text-foreground"
-                />
-              ))}
-            </FadeContainer>
-          </Section>
-        </div>
-
-        <div id="como-trabalhamos">
-          <Section size="middle" sectionClassName="gap-10">
-            <FadeContainer once className="flex flex-col items-center gap-4 text-center">
-              <Title
-                content="Como trabalhamos"
-                element="h2"
-                className="text-foreground"
-              />
-              <Subtitle
-                content="Processo simples, transparente e orientado a impacto"
-                element="h3"
-                className="text-foreground/80"
-              />
-            </FadeContainer>
-            <RevealContainer once className="grid gap-6 md:grid-cols-5">
-              {processSteps.map((step) => (
+            <RevealContainer once className="grid w-full gap-6 md:grid-cols-4">
+              {metricHighlights.map((metric) => (
                 <div
-                  key={step.title}
-                  className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-bg-card/70 p-6 text-center shadow-md"
+                  key={metric.label}
+                  className="flex flex-col gap-2 rounded-2xl border border-white/10 bg-bg-card/70 p-6 text-left"
                 >
                   <Subtitle
-                    content={step.step}
+                    content={metric.value}
                     element="h3"
-                    className="text-secondary-400"
+                    className="text-3xl font-semibold text-primary-200"
                   />
                   <Paragraph
-                    content={step.title}
-                    className="text-foreground/75"
+                    content={metric.label}
+                    className="text-sm text-foreground/70"
                   />
                 </div>
               ))}
             </RevealContainer>
-            <Paragraph
-              content="Tecnologia + Estratégia + Parceria = Sucesso do seu projeto."
-              className="text-center text-foreground/70"
-            />
           </Section>
         </div>
 
-        <div id="para-quem">
-          <Section size="middle" sectionClassName="gap-10">
-            <FadeContainer once className="flex flex-col items-center gap-4 text-center">
-              <Title
-                content="Para quem é ideal"
-                element="h2"
-                className="text-foreground"
+        <div>
+          <Section
+            size="middle"
+            sectionClassName="gap-12 items-start"
+          >
+            <FadeContainer once className="flex w-full flex-col gap-3 text-left">
+              <Phrase
+                content="Tecnologias"
+                className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-300"
               />
-              <Subtitle
-                content="Atendemos negócios que precisam de tecnologia confiável para crescer"
-                element="h3"
-                className="text-foreground/80"
+              <Title
+                content="Stack moderno para construir hoje o futuro do seu produto"
+                element="h2"
+                className="text-left text-3xl sm:text-4xl text-white"
               />
             </FadeContainer>
-            <FadeContainer className="grid w-full gap-6 md:grid-cols-2">
-              {idealForList.map((item) => (
-                <ItemListCard
-                  key={item}
-                  icon={<UsersThreeIcon size={28} className="text-tertiary-400" />}
-                  title={item}
-                  containerClassName="bg-bg-card/70 backdrop-blur border border-white/5"
-                  titleClassName="text-foreground"
-                />
+            <FadeContainer once className="grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {technologyStack.map((tech) => (
+                <div
+                  key={tech.name}
+                  className="flex h-full flex-col gap-2 rounded-2xl border border-white/10 bg-bg-card/70 p-5"
+                >
+                  <Subtitle
+                    content={tech.name}
+                    element="h3"
+                    className="text-lg font-semibold text-primary-200"
+                  />
+                  <Paragraph
+                    content={tech.description}
+                    className="text-sm text-foreground/65"
+                  />
+                </div>
               ))}
             </FadeContainer>
           </Section>
         </div>
 
-        <div id="contato">
-          <Section size="middle" sectionClassName="gap-8">
-            <FadeContainer once className="flex flex-col items-center gap-4 text-center">
-              <Title
-                content="Pronto para tirar sua ideia do papel?"
-                element="h2"
-                className="text-foreground"
+        <div>
+          <Section
+            size="middle"
+            sectionClassName="gap-10 items-start"
+          >
+            <FadeContainer once className="flex w-full flex-col gap-3 text-left">
+              <Phrase
+                content="Empresas atendidas"
+                className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-300"
               />
-              <Paragraph
-                content="Fale com a CerboLabs e tenha uma solução profissional do início ao fim."
-                className="max-w-2xl text-foreground/70"
+              <Title
+                content="Parcerias que confiam na CerboLabs"
+                element="h2"
+                className="text-left text-3xl sm:text-4xl text-white"
               />
             </FadeContainer>
-            <ZoomContainer className="w-full">
-              <div className="flex flex-col items-center gap-6 rounded-3xl border border-white/10 bg-gradient-to-br from-primary-900/70 via-primary-800/70 to-[#0d1328] p-10 text-center shadow-[0_0_50px_rgba(124,58,237,0.25)]">
-                <Paragraph
-                  content="Escolha a melhor forma de contato e vamos acelerar seu próximo capítulo digital."
-                  className="text-foreground/75"
-                />
-                <div className="flex flex-wrap items-center justify-center gap-4">
-                  <Button
-                    label="👉 Solicitar Orçamento"
-                    onClick={() => handleNavigate("#contato")}
-                  />
-                  <Button
-                    label="👉 Agendar uma Reunião"
-                    variant="outlined"
-                    className="border-secondary-500 text-secondary-400 hover:bg-secondary-500/10"
-                    onClick={() => handleNavigate("#contato")}
+            <RevealContainer once className="grid w-full gap-4 sm:grid-cols-3 lg:grid-cols-5">
+              {partnerLogos.map((partner) => (
+                <div
+                  key={partner.name}
+                  className="flex h-24 items-center justify-center rounded-2xl border border-white/10 bg-[#050b1b]/80 text-center"
+                >
+                  <Phrase
+                    content={partner.name}
+                    className="text-base font-semibold uppercase tracking-[0.25em] text-foreground/70"
                   />
                 </div>
-                <div className="grid gap-4 md:grid-cols-3">
-                  {contactChannels.map((channel) => (
+              ))}
+            </RevealContainer>
+          </Section>
+        </div>
+
+        <div id="contato">
+          <Section
+            size="middle"
+            sectionClassName="gap-10 items-start rounded-[32px] border border-primary-500/20 bg-gradient-to-br from-primary-500/20 via-[#050b1b] to-[#02060f]"
+          >
+            <FadeContainer once className="flex w-full flex-col gap-4 text-left">
+              <Phrase
+                content="Contato"
+                className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-200"
+              />
+              <Title
+                content="Pronto para tirar sua ideia do papel ou evoluir seu produto atual?"
+                element="h2"
+                className="text-left text-3xl sm:text-4xl text-white"
+              />
+              <Paragraph
+                content="Converse com nosso time e receba um plano personalizado para o seu próximo capítulo digital."
+                className="max-w-3xl text-foreground/75"
+              />
+              <div className="flex flex-wrap gap-4">
+                <Button
+                  label="👉 Solicitar Orçamento"
+                  onClick={() => handleNavigate("#contato")}
+                  className="rounded-full bg-primary-500 px-6 py-3 text-sm font-semibold tracking-wide text-white shadow-[0_15px_35px_rgba(37,99,235,0.35)] hover:bg-primary-400"
+                />
+                <Button
+                  label="👉 Agendar uma Reunião"
+                  variant="outlined"
+                  className="rounded-full border-primary-300 px-6 py-3 text-sm font-semibold text-primary-200 hover:bg-primary-500/10"
+                  onClick={() => handleNavigate("#contato")}
+                />
+              </div>
+            </FadeContainer>
+            <ZoomContainer once className="w-full">
+              <div className="grid gap-6 md:grid-cols-3">
+                {contactChannels.map((channel, index) => {
+                  const Icon = contactIcons[index % contactIcons.length];
+                  return (
                     <div
                       key={channel.label}
-                      className="flex flex-col items-center gap-2 rounded-2xl border border-white/10 bg-bg-card/80 p-4"
+                      className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-bg-card/70 p-6"
                     >
-                      <Subtitle
-                        content={channel.label}
-                        element="h4"
-                        className="text-secondary-400"
-                      />
+                      <div className="flex items-center gap-3">
+                        <Icon className="h-5 w-5 text-primary-200" />
+                        <Subtitle
+                          content={channel.label}
+                          element="h3"
+                          className="text-base font-semibold text-white"
+                        />
+                      </div>
                       <a
                         href={channel.href}
-                        className="text-sm font-semibold text-foreground hover:text-secondary-400"
+                        className="text-sm font-semibold text-foreground hover:text-primary-200"
                       >
                         {channel.value}
                       </a>
                     </div>
-                  ))}
-                </div>
+                  );
+                })}
               </div>
             </ZoomContainer>
           </Section>
@@ -424,7 +528,7 @@ export default function Home() {
                 <li key={`footer-${channel.label}`}>
                   <a
                     href={channel.href}
-                    className="text-xs sm:text-sm text-foreground/80 hover:text-secondary-400"
+                    className="text-xs sm:text-sm text-foreground/80 hover:text-primary-200"
                   >
                     {`${channel.label}: ${channel.value}`}
                   </a>
@@ -440,7 +544,7 @@ export default function Home() {
             { iconName: "youtube", href: "https://youtube.com" },
             { iconName: "whatsapp", href: "https://wa.me/551140009090" },
           ]}
-          iconsClassName="text-foreground hover:text-secondary-400"
+          iconsClassName="text-foreground hover:text-primary-200"
           iconsWeight="regular"
         >
           <Phrase
