@@ -3,6 +3,7 @@ import LandingHeader from "@/components/elements/LandingHeader";
 import useTheme from "@/hooks/useTheme";
 import { menuItems } from "@/mocks/app";
 import { MoonIcon, SunIcon } from "@phosphor-icons/react";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Header() {
@@ -11,8 +12,13 @@ export default function Header() {
   return (
     <LandingHeader.Root bordered>
       <LandingHeader.Left className="flex flex-col items-start justify-center h-full bg-background">
-        <h1 className="text-lg sm:text-xl font-bold">PS Code</h1>
-        <p className="text-sm sm:text-base -mt-2">Soluções em software</p>
+        <Image
+          width={172}
+          height={50}
+          src={theme === "dark" ? "/logo-light.png" : "/logo-dark.png"}
+          alt="Logo da PS Code"
+          className="object-contain h-10 sm:h-14"
+        />
       </LandingHeader.Left>
       <LandingHeader.Center>
         <nav>
