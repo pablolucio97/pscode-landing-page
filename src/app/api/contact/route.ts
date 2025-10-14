@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resendKey = process.env.NEXT_PUBLIC_RESEND_API_KEY;
-if (!resendKey) {
-  throw new Error("RESEND_API_KEY is not defined");
-}
+const resendKey = process.env.NEXT_PUBLIC_RESEND_API_KEY || ""
 const resend = new Resend(resendKey);
 
 type FormData = {
