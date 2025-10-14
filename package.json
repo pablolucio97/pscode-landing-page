@@ -45,6 +45,7 @@
     "react-type-animation": "^3.2.0",
     "react-verification-input": "^4.2.2",
     "recharts": "^3.2.1",
+    "resend": "^6.1.2",
     "swiper": "^11.2.10"
   },
   "devDependencies": {

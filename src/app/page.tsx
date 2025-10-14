@@ -1,13 +1,27 @@
-import ClipboardButton from "@/components/buttons/ClipboardButton";
-
+import CompaniesSection from "./components/CompaniesSection";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import IntroductionSection from "./components/IntroductionSection";
+import MetricsSection from "./components/MetricsSection";
+import ServicesSection from "./components/ServicesSection";
+import SolutionsSection from "./components/SolutionsSection";
+import TechnologiesSection from "./components/TechnologiesSection";
+import TopSection from "./components/TopSection";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start"></main>
-      <ClipboardButton 
-      textToCopy="npx create-next-app -e"
-      />
+    <div className="w-full min-h-screen bg-background">
+      <Header />
+      <TopSection />
+      <IntroductionSection />
+      <ServicesSection />
+      <SolutionsSection />
+      <TechnologiesSection />
+      <MetricsSection />
+      <CompaniesSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 }

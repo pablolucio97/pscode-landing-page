@@ -68,7 +68,7 @@ export default function BrandMarquee({
   if (!logos?.length) return null;
 
   return (
-    <section className={clsx("w-full max-w-5xl", className)}>
+    <section className={clsx("w-full max-w-7xl", className)}>
       {title && (
         <h3 className="mb-3 sm:mb-4 text-sm sm:text-base font-medium text-foreground">
           {title}
@@ -124,6 +124,7 @@ export default function BrandMarquee({
                       href={logo.href}
                       aria-label={logo.alt}
                       className="inline-flex items-center"
+                      target="_blank"
                     >
                       {imgEl}
                     </a>

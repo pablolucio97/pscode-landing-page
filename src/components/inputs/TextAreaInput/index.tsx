@@ -70,13 +70,14 @@ const TextAreaInput = forwardRef<HTMLTextAreaElement, TextAreaInputProps>(
           id={inputId}
           ref={ref}
           disabled={disabled}
+          rows={3}
           maxLength={maxTextLength}
           aria-invalid={!!errorMessage || undefined}
           aria-describedby={
             errorMessage ? errorId : helperText ? helpId : undefined
           }
           className={clsx(
-            "flex w-full h-10 rounded-md bg-background text-foreground placeholder:text-foreground/50 text-sm sm:text-base",
+            "flex w-full min-h-20 rounded-md bg-background text-foreground placeholder:text-foreground/50 text-sm sm:text-base",
             "border border-gray-300 dark:border-gray-600",
             "outline-none transition",
             "focus:border-primary-600 focus:ring-2 focus:ring-primary-300/30",

@@ -13,6 +13,8 @@ interface ZoomContainerProps {
   scale?: number;
   // /** Classes adicionais para customização do container */
   className?: string;
+  // /** Delay da animação em segundos */
+  delay?: number;
 }
 
 /** Container de animação com efeito zoom in.*/ 
@@ -22,6 +24,7 @@ export default function ZoomContainer({
   visibilityAmount = 0.25,
   once = false,
   scale = 1,
+  delay = 0,
   className,
 }: ZoomContainerProps) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -35,7 +38,7 @@ export default function ZoomContainer({
       animate={
         inView ? { opacity: 1, scale: scale } : { opacity: 0, scale: 0 }
       }
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.8, delay: delay * 0.1 }}
       className={className}
     >
       {children}

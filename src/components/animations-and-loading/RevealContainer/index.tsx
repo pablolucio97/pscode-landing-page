@@ -13,6 +13,8 @@ interface RevealContainerProps {
   offSet?: number;
   // /** Classes adicionais para customização do container */
   className?: string;
+  // /** Delay da animação em segundos */
+  delay?: number;
 }
 
 /** Container de animação com efeito reveal up. Para ver o efeito, envolva o conteúdo em um <ZoomContainer> e garanta que o componente esteja dentro de algum container que tenha altura mínima para scrolar a página.*/
@@ -21,6 +23,7 @@ export default function RevealContainer({
   visibilityAmount = 0.25,
   once = false,
   offSet = 80,
+  delay = 0,
   className
 }: RevealContainerProps) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -36,7 +39,7 @@ export default function RevealContainer({
           ? { opacity: 1, transform: "translateY(0)" }
           : { opacity: 0, transform: `translateY(${offSet}px)` }
       }
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.8, delay: delay * 0.1 }}
       className={className}
     >
       {children}

@@ -29,7 +29,7 @@ export default function Subtitle({
         element,
         {
           className: clsx(
-            `text-lg sm:text-xl md:text-2xl text-foreground font-${weight}`,
+            `text-base sm:text-lg md:text-xl text-foreground font-${weight}`,
             className
           ),
         },

@@ -11,6 +11,8 @@ interface FadeContainerProps {
   once?: boolean;
   // /** Classes adicionais para customização do container */
   className?: string;
+  // /** Delay da animação em segundos */
+  delay?: number;
 }
 
 /** Container de animação com efeito fade. Para ver o efeito, envolva o conteúdo em um <ZoomContainer> e garanta que o componente esteja dentro de algum container que tenha altura mínima para scrolar a página.*/ 
@@ -19,6 +21,7 @@ export default function FadeContainer({
   children,
   visibilityAmount = 0.25,
   once = false,
+  delay = 0,
   className
  } : FadeContainerProps) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -32,7 +35,7 @@ export default function FadeContainer({
       animate={
         inView ? { opacity: 1} : { opacity: 0}
       }
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.8, delay: delay * 0.1 }}
       className={className}
     >
       {children}

@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
+import clsx from "clsx";
 import type { ButtonHTMLAttributes } from "react";
-import React from "react";
 import { BarLoader, ClipLoader, DotLoader, ScaleLoader } from "react-spinners";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -15,6 +15,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   iconVariant?: "scale" | "bar" | "clip" | "dot";
   /** Cor do ícone. */
   iconColor?: string;
+  /** Classe CSS adicional para customização. */
+  className?: string;
 }
 
 /** Componente de botão genérico. */
@@ -24,20 +26,25 @@ export default function Button({
   variant = "filled",
   iconVariant = "scale",
   iconColor = "#ffffff",
+  className,
   ...props
-} : ButtonProps) {
+}: ButtonProps) {
   return (
     <button
-      className={`flex items-center justify-center w-fit px-3 py-2 sm:px-4 sm:py-3 rounded-md ${variant === "filled"
-          ? "bg-primary-500 text-white hover:bg-primary-600"
-          : variant === "outlined"
-            ? "border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white"
+      className={clsx(
+        `flex items-center justify-center w-fit px-3 py-2 sm:px-4 sm:py-3 rounded-md  ${
+          variant === "filled"
+            ? "bg-primary-500 text-white"
+            : variant === "outlined"
+            ? "border border-primary-500 text-primary-500"
             : variant === "alert"
-              ? "bg-amber-500 text-white hover:bg-amber-600"
-              : variant === "destructive"
-                ? "bg-destructive-500 text-white hover:bg-destructive-600"
-                : ""
-        }`}
+            ? "bg-amber-500 text-white"
+            : variant === "destructive"
+            ? "bg-destructive-500 text-white"
+            : ""
+        }`,
+        className
+      )}
       disabled={loading}
       {...props}
     >
@@ -65,5 +72,3 @@ export default function Button({
     </button>
   );
 }
-
-
