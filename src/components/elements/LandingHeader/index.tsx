@@ -121,7 +121,7 @@ const Nav: React.FC<{ className?: string; children?: React.ReactNode }> & {
     active?: boolean;
   }>;
 } = ({ className, children }) => (
-  <ul className={clsx("flex items-center gap-6 overflow-x-auto", className)}>
+  <ul className={clsx("flex items-center gap-6 overflow-x-auto w-full", className)}>
     {children}
   </ul>
 );
@@ -133,7 +133,7 @@ Nav.Item = ({ href = "#", target, onClick, children, active }) => (
       target={target}
       onClick={onClick}
       className={clsx(
-        "text-sm font-medium  whitespace-nowrap",
+        "text-sm font-medium  whitespace-nowrap text-left",
         "text-foreground/90 hover:text-foreground",
         active && "text-primary"
       )}
@@ -197,7 +197,7 @@ const MobileMenuPanel: React.FC<{
   return (
     <div className="md:hidden absolute left-0 right-0 top-full z-30 w-full border-b border-foreground/10 bg-background/98 backdrop-blur transition">
       <div className="mx-auto max-w-7xl px-3 py-3">
-        <ul className="flex flex-col items-center gap-3 py-1">{children}</ul>
+        <ul className="flex flex-col items-center gap-3">{children}</ul>
         {cta && <div className="mt-3">{cta}</div>}
       </div>
     </div>

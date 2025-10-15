@@ -9,6 +9,11 @@ import { useState } from "react";
 export default function Header() {
   const { theme, setTheme } = useTheme();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const handleToggleMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
+  };
+
   return (
     <LandingHeader.Root bordered>
       <LandingHeader.Left className="flex flex-col items-start justify-center h-full bg-background">
@@ -39,14 +44,18 @@ export default function Header() {
         </button>
         <LandingHeader.MobileMenuToggle
           open={showMobileMenu}
-          onToggle={() => setShowMobileMenu(!showMobileMenu)}
+          onToggle={handleToggleMobileMenu}
         />
       </LandingHeader.Right>
       <LandingHeader.MobileMenuPanel open={showMobileMenu}>
         <LandingHeader.Nav>
           <ul className="flex flex-col">
             {menuItems.map((item) => (
-              <li key={item.href} className="inline-block mx-2">
+              <li
+                key={item.href}
+                className="inline-block mx-2 mb-2"
+                onClick={handleToggleMobileMenu}
+              >
                 <a href={item.href} className="text-sm sm:text-base">
                   {item.label}
                 </a>
