@@ -61,11 +61,13 @@ export default function Footer() {
       </LandingFooter.Top>
       <LandingFooter.Bottom>
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-          <p className="text-xs text-foreground  whitespace-nowrap">
+          <p className="text-xs text-foreground">
             © {currentYear} PS Code | Soluções em software — CNPJ:
+          </p>
+          <p className="text-xs text-foreground">
             47.463.499/0001-37
           </p>
-          <p className="text-xs text-foreground/60 whitespace-nowrap">
+          <p className="text-xs text-foreground/60">
             Desenvolvido por PS Code | Soluções em software
           </p>
         </div>

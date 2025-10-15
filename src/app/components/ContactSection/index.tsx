@@ -71,10 +71,10 @@ export default function ContactSection() {
       ) : (
         <form
           action="register-contact"
-          className="w-full sm:w-lg flex flex-col gap-4 bg-foreground/5 rounded-md border border-foreground/5 p-6"
+          className="w-full sm:w-lg flex flex-col gap-4 rounded-md border border-foreground/20 p-6"
           onSubmit={handleSubmit}
         >
-          <div className="w-full gap-4 grid grid-cols-1 sm:grid-cols-2">
+          <div className="w-full gap-4 grid grid-cols-1 md:grid-cols-2">
             <TextInput
               label="Seu nome"
               placeholder="Seu nome"
@@ -97,9 +97,9 @@ export default function ContactSection() {
               value={whatsapp}
               onChange={(e) => setWhatsapp(e.target.value)}
             />
+          </div>
             <TextAreaInput
               label="Sua mensagem"
-              containerClassName="col-span-2"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Escreva sua mensagem aqui..."
@@ -108,7 +108,6 @@ export default function ContactSection() {
               required
               multiple
             />
-          </div>
           <Button
             type="submit"
             label="Enviar mensagem"

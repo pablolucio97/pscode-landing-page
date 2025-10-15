@@ -12,7 +12,7 @@ export default function TopSection() {
   return (
     <HeroSection
       title="Desenvolvimento de soluções digitais que transformam negócios"
-      buttonText="Vamos conversar"
+      buttonText="Entrar em contato"
       buttonClassName="bg-gradient-to-r from-primary-700 to-primary-400 text-white font-bold"
       size="middle"
       sectionClassName="bg-gradient-to-r from-black to-primary-600 via-gray-900"
@@ -21,7 +21,7 @@ export default function TopSection() {
       onButtonClick={handleNavigateToContact}
       children={
         <TypeWriter
-          className="text-2xl font-semibold text-white my-8"
+          className="text-2xl font-semibold text-white my-8 text-center"
           repeat={Infinity}
           showsCursor
           speed={20}
