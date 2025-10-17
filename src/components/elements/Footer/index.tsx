@@ -111,9 +111,9 @@ const Column: React.FC<ColumnProps> = ({
   return (
     <div {...rest} className={clsx("flex flex-col items-center sm:items-start", className)}>
       {title && (
-        <h4 className="mb-3 text-xs sm:text-sm font-semibold tracking-wide text-foreground">
+        <h3 className="mb-3 text-xs sm:text-sm font-semibold tracking-wide text-foreground">
           {title}
-        </h4>
+        </h3>
       )}
       {items && items.length > 0 ? (
         <ul className="sm:space-y-2 text-sm text-center sm:text-left">
