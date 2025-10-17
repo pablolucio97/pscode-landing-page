@@ -124,6 +124,7 @@ const Column: React.FC<ColumnProps> = ({
                   href={it.href}
                   target={it.target}
                   className="text-foreground/80 text-xs sm:text-sm hover:text-foreground underline-offset-4 hover:underline"
+                  aria-label={it.label}
                 >
                   {it.label}
                 </a>
