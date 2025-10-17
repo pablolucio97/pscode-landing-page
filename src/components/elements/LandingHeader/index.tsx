@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
-import Image from "next/image";
-import { ListIcon, XIcon } from "@phosphor-icons/react"; // @phosphor-icons/react
+import { ListIcon, XIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
+import Image from "next/image";
+import React from "react";
 
 type Size = "sm" | "md" | "lg";
 
@@ -121,7 +122,12 @@ const Nav: React.FC<{ className?: string; children?: React.ReactNode }> & {
     active?: boolean;
   }>;
 } = ({ className, children }) => (
-  <ul className={clsx("flex items-center gap-6 overflow-x-auto w-full", className)}>
+  <ul
+    className={clsx(
+      "flex items-center gap-6 overflow-x-auto w-full",
+      className
+    )}
+  >
     {children}
   </ul>
 );
@@ -131,9 +137,11 @@ Nav.Item = ({ href = "#", target, onClick, children, active }) => (
     <a
       href={href}
       target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
       onClick={onClick}
       className={clsx(
-        "text-sm font-medium  whitespace-nowrap text-left",
+        "inline-flex items-center min-h-[44px] px-1",
+        "text-sm font-medium whitespace-nowrap text-left",
         "text-foreground/90 hover:text-foreground",
         active && "text-primary"
       )}
@@ -145,21 +153,29 @@ Nav.Item = ({ href = "#", target, onClick, children, active }) => (
 Nav.Item.displayName = "LandingHeaderNavItem";
 
 /** CTA (qualquer nó) */
-
 interface CTAProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
 }
 
-const CTA: React.FC<CTAProps> = ({ className, label, ...rest }) => {
+const CTA: React.FC<CTAProps> = ({
+  className,
+  label,
+  type = "button",
+  ...rest
+}) => {
   return (
     <button
       {...rest}
+      type={type}
       className={clsx(
         "inline-flex items-center justify-center rounded-lg",
         "bg-primary-500 font-secondary hover:opacity-90",
         "px-4 py-2 text-xs sm:text-sm font-semibold text-white",
+        "min-h-[44px] min-w-[44px]", // touch target
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary/50",
         className
       )}
+      aria-label={label}
     >
       {label}
     </button>
@@ -172,18 +188,27 @@ const MobileMenuToggle: React.FC<
     open?: boolean;
     onToggle?: (open: boolean) => void;
   }
-> = ({ open, onToggle, className, ...rest }) => (
+> = ({ open = false, onToggle, className, type = "button", ...rest }) => (
   <button
-    aria-label="Abrir/fechar menu"
+    aria-label={open ? "Fechar menu" : "Abrir menu"}
+    aria-expanded={open}
+    aria-controls="mobile-menu"
     onClick={() => onToggle?.(!open)}
+    type={type}
     {...rest}
     className={clsx(
-      "flex md:invisible h-9 w-9 md:w-0 md:h-0 items-center justify-center rounded-lg",
+      "flex md:invisible items-center justify-center rounded-lg",
+      "h-11 w-11", // 44×44px touch target
       "hover:bg-primary/10",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary/50",
       className
     )}
   >
-    {open ? <XIcon className="h-5 w-5" /> : <ListIcon className="h-5 w-5" />}
+    {open ? (
+      <XIcon className="h-5 w-5" aria-hidden="true" />
+    ) : (
+      <ListIcon className="h-5 w-5" aria-hidden="true" />
+    )}
   </button>
 );
 
@@ -195,7 +220,12 @@ const MobileMenuPanel: React.FC<{
 }> = ({ open, children, cta }) => {
   if (!open) return null;
   return (
-    <div className="md:hidden absolute left-0 right-0 top-full z-30 w-full border-b border-foreground/10 bg-background/98 backdrop-blur transition">
+    <div
+      id="mobile-menu"
+      className="md:hidden absolute left-0 right-0 top-full z-30 w-full border-b border-foreground/10 bg-background/98 backdrop-blur transition"
+      role="region"
+      aria-label="Menu móvel"
+    >
       <div className="mx-auto max-w-7xl px-3 py-3">
         <ul className="flex flex-col items-center gap-3">{children}</ul>
         {cta && <div className="mt-3">{cta}</div>}
